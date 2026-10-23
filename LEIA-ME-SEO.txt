@@ -1,0 +1,56 @@
+BARACK PRIME · GUIA DE ATIVAÇÃO (SEO, GOOGLE E ANALYTICS)
+==========================================================
+
+O site já sai pronto com: títulos e descrições por página, Open Graph, dados estruturados
+(Imobiliária, Imóveis, FAQ), sitemap.xml, robots.txt, llms.txt (buscas por IA), página 404,
+política de privacidade em /privacidade, uma página própria para cada imóvel em /imoveis/<ref>,
+cabeçalhos de segurança (HTTPS forçado) e aviso de cookies para o Google Analytics.
+
+Faltam só as etapas que dependem da SUA conta Google:
+
+1) DOMÍNIO E SSL
+   - Publique a pasta na Vercel ou no Cloudflare Pages e aponte o domínio barackprime.com.
+   - O certificado SSL (HTTPS) é emitido automaticamente e de graça pelas duas plataformas.
+   - Se o domínio for outro, troque "siteUrl" em build/site.config.json e gere o build de novo
+     (ou peça ao Claude para trocar).
+
+2) GOOGLE SEARCH CONSOLE
+   - Acesse search.google.com/search-console > Adicionar propriedade > "Prefixo do URL".
+   - Escolha o método "Tag HTML", copie só o código do content="..." e cole em
+     "googleSiteVerification" no build/site.config.json (ou envie o código para o Claude).
+   - Depois de verificado: Sitemaps > adicione "sitemap.xml".
+   - Alternativa sem código: verificação por DNS (registro TXT) no painel do domínio.
+
+3) GOOGLE ANALYTICS 4
+   - analytics.google.com > Administrador > Criar propriedade > Fluxo de dados "Web".
+   - Copie o ID de métricas (G-XXXXXXXXXX) e coloque em "ga4Id" no build/site.config.json (ou envie o ID para o Claude).
+   - Com o ID preenchido, o aviso de cookies aparece e o Analytics só carrega se o visitante aceitar (LGPD).
+   - Eventos já configurados: contact_whatsapp, generate_lead, view_item, review_click.
+     No GA4, marque "generate_lead" e "contact_whatsapp" como Eventos-chave (conversões).
+
+4) PERFIL DA EMPRESA NO GOOGLE (Google Meu Negócio)
+   - business.google.com > adicione "Barack Prime Assessoria Imobiliária", categoria "Imobiliária".
+   - Use exatamente o mesmo nome, telefone (45) 92000-8896 e site do rodapé (consistência NAP).
+   - Horário: seg a sáb, 9h às 18h · Área atendida: Foz do Iguaçu e região.
+   - Suba 10+ fotos (fachadas dos imóveis, equipe, logo), descrição com "imóveis de alto padrão em Foz do Iguaçu",
+     e publique uma Postagem por semana com um imóvel.
+   - Cole o link do perfil em "googleBusinessUrl" no build/site.config.json.
+
+5) AVALIAÇÕES
+   - No Perfil da Empresa: "Pedir avaliações" > copie o link curto (g.page/r/...).
+   - Cole em "googleReviewUrl" no build/site.config.json (ou envie para o Claude): o botão "Avalie-nos no Google" do rodapé passa a abrir direto a tela de avaliação.
+   - Envie o link por WhatsApp a cada cliente atendido, de preferência até 3 dias após a visita ou o fechamento.
+   - Responda todas as avaliações (inclusive as negativas) em até 48h.
+
+6) TESTE DE VELOCIDADE (depois de publicar)
+   - pagespeed.web.dev > cole o endereço do site > rode Celular e Computador.
+   - Meta: LCP abaixo de 2,5 s, CLS abaixo de 0,1, INP abaixo de 200 ms.
+
+7) CRECI
+   - Quando tiver o número, preencha CRECI em src/app.jsx e "creci" no site.config.json.
+
+8) NOVO NESTA VERSÃO (auditoria de 15/10/2026)
+   - Página /guia-foz-do-iguacu (guia completo, rastreável pelo Google e pelas IAs), já no sitemap e no llms.txt.
+   - Imagem de compartilhamento própria para cada imóvel (media/og/<ref>.jpg).
+   - Títulos com até 60 caracteres e descrições com até 155 caracteres em todas as páginas.
+   - Imagens e vídeo do topo comprimidos (cerca de 2,3 MB a menos no primeiro acesso pelo celular).

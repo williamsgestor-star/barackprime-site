@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d0d0f">
+<title>Ficha do imóvel · Barack Prime</title>
+<link rel="icon" type="image/png" href="bp-icon-v2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#0d0d0f;--panel:#151517;--line:rgba(255,255,255,.09);--ink:#f2efe8;--muted:#a9a397;--gold:#d9bb74;--metal:linear-gradient(115deg,#7d5d24 0%,#d9bb74 18%,#fff1c4 30%,#c9a052 44%,#8a6a2f 58%,#e8cd8a 74%,#fff4cf 84%,#b08a42 100%)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.55;min-height:100vh;padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+img{display:block;max-width:100%}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+header img{height:42px;width:auto}
+.for{font-size:12.5px;color:var(--muted);text-align:right}
+.for b{color:var(--gold);font-weight:600}
+.gal{position:relative;border-radius:22px;overflow:hidden;background:#000;border:1px solid var(--line)}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.track img{flex:0 0 100%;width:100%;aspect-ratio:4/3;object-fit:cover;scroll-snap-align:center}
+@media(min-width:760px){.track img{aspect-ratio:16/9}}
+.count{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);color:#fff;font-size:12.5px;padding:5px 10px;border-radius:999px}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:22px;cursor:pointer;display:none}
+@media(hover:hover){.nav{display:block}}
+.nav.l{left:12px}.nav.r{right:12px}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding:10px 0 0;scrollbar-width:none}
+.thumbs::-webkit-scrollbar{display:none}
+.thumbs button{flex:0 0 72px;height:54px;border-radius:10px;overflow:hidden;border:2px solid transparent;padding:0;cursor:pointer;opacity:.6;background:#000}
+.thumbs button.on{border-color:var(--gold);opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.tag{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(217,187,116,.35);border-radius:999px;padding:4px 10px}
+h1{font-family:Cinzel,serif;font-weight:600;font-size:clamp(1.6rem,4.5vw,2.4rem);line-height:1.15;margin-top:12px;letter-spacing:.01em}
+.loc{color:var(--muted);margin-top:6px;font-size:15px}
+.price{margin-top:14px;font-size:clamp(1.6rem,5vw,2.1rem);font-weight:700;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price small{font-size:.5em;color:var(--muted);-webkit-text-fill-color:var(--muted);font-weight:500}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px}
+.spec{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 8px;text-align:center}
+.spec b{display:block;font-size:20px}
+.spec span{font-size:12px;color:var(--muted)}
+section.box{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:16px}
+h2{font-family:Cinzel,serif;font-size:15px;letter-spacing:.12em;color:var(--gold);margin-bottom:10px;font-weight:600}
+.desc{color:#d8d3c9;font-size:15.5px}
+.grp{margin-top:12px}.grp p{font-weight:600;font-size:14px;margin-bottom:4px}
+ul.list{list-style:none;display:grid;gap:4px}
+ul.list li{font-size:14.5px;color:#d8d3c9;padding-left:16px;position:relative}
+ul.list li:before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px}
+.map{border-radius:16px;overflow:hidden;border:1px solid var(--line);margin-top:4px}
+.map iframe{display:block;width:100%;height:280px;border:0;filter:saturate(.9)}
+.note{font-size:12.5px;color:var(--muted);margin-top:8px}
+.cta{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(13,13,15,0),rgba(13,13,15,.92) 30%);z-index:10}
+.cta .in{max-width:980px;margin:0 auto;display:flex;gap:10px}
+.btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 18px;font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer}
+.wa{background:linear-gradient(145deg,#2fe07a,#1aa952);color:#fff;box-shadow:0 12px 30px -12px rgba(37,211,102,.7)}
+.gold{background:var(--metal);color:#17140f}
+footer{color:var(--muted);font-size:12px;text-align:center;padding:28px 0 8px}
+.err,.load{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:24px}
+.spin{width:38px;height:38px;border-radius:50%;border:3px solid rgba(217,187,116,.25);border-top-color:var(--gold);animation:s 1s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+@media(max-width:420px){.specs{grid-template-columns:repeat(2,1fr)}}
+</style>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<div class="wrap" id="app"><div class="load"><div class="spin"></div><p style="color:var(--muted)">Carregando a ficha do imóvel…</p></div></div>
+<script>
+(function () {
+  var API = "https://fspqwjrmjjykjpkjxwvb.supabase.co/functions/v1/atendimento";
+  var WA = "5545920008896";
+  var app = document.getElementById("app");
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var brl = function (v) { return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 }).format(v || 0); };
+  var t = new URLSearchParams(location.search).get("t") || ((location.pathname.match(/\/f\/([a-z0-9]+)/i) || [])[1]) || "";
+  var fail = function (msg) { app.innerHTML = '<header><img src="brand/logo-full.png" alt="Barack Prime"></header><div class="err"><h1 style="font-size:24px">' + esc(msg) + '</h1><p style="color:var(--muted)">Fale com a nossa equipe para receber um novo link.</p><a class="btn wa" style="flex:none" href="https://wa.me/' + WA + '?text=' + encodeURIComponent("Olá, Barack Prime! Recebi uma ficha de imóvel, mas o link não abriu.") + '">Falar no WhatsApp</a><a href="./" style="color:var(--gold)">Ver todos os imóveis</a></div>'; };
+  if (!/^[a-z0-9]{12,40}$/i.test(t)) return fail("Link inválido");
+  fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "ficha", t: t, preview: /[?&]preview=1/.test(location.search) }) })
+    .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+    .then(function (res) { if (!res.ok || !res.j.ok) return fail(res.j && res.j.error === "notfound" ? "Este link não está mais disponível" : "Não foi possível abrir a ficha agora"); render(res.j); })
+    .catch(function () { fail("Não foi possível abrir a ficha agora"); });
+  function render(d) {
+    var p = d.p, ph = p.photos && p.photos.length ? p.photos : [];
+    document.title = (p.ref ? p.ref + " · " : "") + p.title + " · Barack Prime";
+    var rent = p.purpose === "aluguel";
+    var msg = "Olá! Vi a ficha do imóvel " + (p.ref ? p.ref + " · " : "") + p.title + (d.broker ? " enviada por " + d.broker.split(" ")[0] : "") + " e gostaria de agendar uma visita.";
+    var specs = [[p.beds, "quartos"], [p.suites, "suítes"], [p.parking, "vagas"], [p.area, "m²"]].filter(function (x) { return x[0]; });
+    var h = '';
+    h += '<header><img src="brand/logo-full.png" alt="Barack Prime Assessoria Imobiliária"><p class="for">' + (d.client ? 'Seleção exclusiva para <b>' + esc(d.client) + '</b>' : 'Seleção exclusiva') + (d.broker ? '<br>por ' + esc(d.broker) : '') + '</p></header>';
+    if (ph.length) {
+      h += '<div class="gal"><div class="track" id="tr">' + ph.map(function (u, i) { return '<img src="' + esc(u) + '" alt="Foto ' + (i + 1) + '" loading="' + (i < 2 ? "eager" : "lazy") + '">'; }).join("") + '</div>';
+      if (ph.length > 1) h += '<button class="nav l" aria-label="Foto anterior" data-d="-1">‹</button><button class="nav r" aria-label="Próxima foto" data-d="1">›</button>';
+      h += '<span class="count" id="ct">1 / ' + ph.length + '</span></div>';
+      if (ph.length > 1) h += '<div class="thumbs" id="th">' + ph.map(function (u, i) { return '<button data-i="' + i + '" class="' + (i ? "" : "on") + '" aria-label="Ver foto ' + (i + 1) + '"><img src="' + esc(u) + '" alt="" loading="lazy"></button>'; }).join("") + '</div>';
+    }
+    h += '<div class="tags">' + (p.ref ? '<span class="tag">' + esc(p.ref) + '</span>' : '') + (p.type ? '<span class="tag">' + esc(p.type) + '</span>' : '') + '<span class="tag">' + (rent ? "Aluguel" : "Venda") + '</span>' + (p.status === "reservado" ? '<span class="tag" style="color:#f59e0b">Reservado</span>' : '') + '</div>';
+    h += '<h1>' + esc(p.title) + '</h1><p class="loc">' + esc(p.address || p.hood) + ' · Foz do Iguaçu – PR</p>';
+    if (p.price) h += '<p class="price">' + brl(p.price) + (rent ? ' <small>/mês</small>' : '') + '</p>';
+    if (specs.length) h += '<div class="specs">' + specs.map(function (s) { return '<div class="spec"><b>' + esc(String(s[0]).replace(".", ",")) + '</b><span>' + s[1] + '</span></div>'; }).join("") + '</div>';
+    if (p.desc || (p.details && p.details.length)) {
+      h += '<section class="box"><h2>SOBRE O IMÓVEL</h2>' + (p.desc ? '<p class="desc">' + esc(p.desc) + '</p>' : '');
+      (p.details || []).forEach(function (g) { h += '<div class="grp"><p>' + esc(g[0]) + '</p><ul class="list">' + (g[1] || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div>'; });
+      h += '</section>';
+    }
+    if (p.features && p.features.length) h += '<section class="box"><h2>DIFERENCIAIS</h2><div class="chips">' + p.features.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join("") + '</div></section>';
+    if (p.mapQ) h += '<section class="box"><h2>LOCALIZAÇÃO</h2><div class="map"><iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=' + encodeURIComponent(p.mapQ) + '&z=' + (p.exact ? 16 : 14) + '&output=embed"></iframe></div>' + (p.exact ? '' : '<p class="note">Localização aproximada da região. O endereço exato é informado no agendamento da visita.</p>') + '</section>';
+    h += '<p class="note" style="margin-top:14px">Valores e disponibilidade sujeitos a alteração sem aviso prévio. Confirme com seu corretor.</p>';
+    h += '<footer>Barack Prime Assessoria Imobiliária · CRECI J10762 · Foz do Iguaçu – PR<br><a href="./" style="color:var(--gold)">barackprime · ver outros imóveis</a></footer>';
+    h += '<div class="cta"><div class="in"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/' + WA + '?text=' + encodeURIComponent(msg) + '">Agendar visita pelo WhatsApp</a></div></div>';
+    app.innerHTML = h;
+    var tr = document.getElementById("tr"), ct = document.getElementById("ct"), th = document.getElementById("th");
+    if (!tr) return;
+    var cur = 0;
+    var go = function (i) { i = (i + ph.length) % ph.length; tr.scrollTo({ left: i * tr.clientWidth, behavior: "smooth" }); };
+    tr.addEventListener("scroll", function () { var i = Math.round(tr.scrollLeft / tr.clientWidth); if (i !== cur) { cur = i; if (ct) ct.textContent = (i + 1) + " / " + ph.length; if (th) { th.querySelectorAll("button").forEach(function (b, k) { b.classList.toggle("on", k === i); }); var b = th.children[i]; if (b && b.scrollIntoView) b.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" }); } } }, { passive: true });
+    document.querySelectorAll(".nav").forEach(function (b) { b.addEventListener("click", function () { go(cur + Number(b.getAttribute("data-d"))); }); });
+    if (th) th.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) go(Number(b.getAttribute("data-i"))); });
+  }
+})();
+</script>
+</body>
+</html>
