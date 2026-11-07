@@ -49,6 +49,15 @@
       "headers": [
         {
           "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/(favicon.ico|apple-touch-icon.png|bp-icon-v2.png|bp-icon-v2-32.png|site.webmanifest)",
+      "headers": [
+        {
+          "key": "Cache-Control",
           "value": "public, max-age=604800"
         }
       ]
