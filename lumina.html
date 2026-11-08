@@ -201,11 +201,32 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
 .side ol button{width:100%;display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;color:rgba(247,241,231,.75);text-align:left}
 .side ol button:before{counter-increment:r;content:counter(r,decimal-leading-zero);font-size:10.5px;color:var(--gold);padding-top:3px}
 .side ol button.on,.side ol button:hover{color:#fff}
-.side .acts{display:flex;gap:10px;margin-top:auto;padding-top:14px}
+.side .acts{display:flex;gap:10px;margin-top:auto;padding-top:14px}.side>#aptWa{width:100%;font-size:14px}
 .side .acts .btn{flex:1;padding:0 14px;font-size:14px}
 .apt .close{position:absolute;top:18px;left:18px;z-index:5;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(1,28,35,.7);border:1px solid var(--line)}
-@media (max-width:900px){.apt{grid-template-columns:1fr;grid-template-rows:56vh 1fr}.side{border-left:0;border-top:1px solid var(--line);padding:22px 20px}.side h3{font-size:32px}.apt .viewer .cap{bottom:76px}.apt .tabs{display:none}}
+@media (max-width:900px){.apt{grid-template-columns:1fr;grid-template-rows:58svh 1fr}.badge3d{left:14px;bottom:12px}.pin b{font-size:11px}.side{border-left:0;border-top:1px solid var(--line);padding:22px 20px}.side h3{font-size:32px}.apt .viewer .cap{bottom:76px}.apt .tabs{display:none}}
 
+.stage3d{position:relative;height:100%;background:radial-gradient(90% 80% at 50% 45%,#1d4f5c 0%,#0b3540 45%,#031f27 100%);overflow:hidden;touch-action:none}
+.stage3d canvas{display:block;cursor:grab}.stage3d canvas:active{cursor:grabbing}
+.pins{position:absolute;inset:0;pointer-events:none}
+.pin{position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;margin:-11px 0 0 -11px;pointer-events:auto;transition:opacity .4s;white-space:nowrap}
+.pin i{position:relative;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 4px 14px rgba(0,0,0,.35);flex:none}
+.pin i:after{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--gold)}
+.pin.has i:before{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid rgba(255,244,214,.8);animation:ping 2.2s ease-out infinite}
+@keyframes ping{from{transform:scale(.6);opacity:1}to{transform:scale(1.5);opacity:0}}
+.pin:not(.has) i{width:14px;height:14px;margin:4px}.pin:not(.has) i:after{inset:4px;background:#9fb3b8}
+.pin b{font-weight:600;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(2,42,52,.85);border:1px solid rgba(232,207,156,.35);color:#fff;opacity:0;transform:translateX(-4px);transition:all .2s;pointer-events:none}
+.pin:hover b,.pin.on b,.pin:focus-visible b{opacity:1;transform:none}
+.pin.has b:after{content:" · ver foto";color:var(--gold2);font-weight:500}
+.badge3d{position:absolute;left:20px;bottom:20px;display:flex;flex-direction:column;gap:6px;pointer-events:none}
+.badge3d span{align-self:flex-start;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:6px 10px;border-radius:5px;background:rgba(236,213,179,.92);color:var(--ink)}
+.badge3d small{font-size:12px;color:rgba(247,241,231,.7)}
+.loading3d{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,231,.6)}
+.apt .main{position:relative;height:100%;overflow:hidden}
+.apt .main>.viewer{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+.apt.photos .main>.viewer{opacity:1;visibility:visible}
+.apt .back3d{position:absolute;top:18px;left:76px;z-index:5;display:none;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:999px;background:rgba(1,28,35,.75);border:1px solid var(--line);font-size:13px;font-weight:600}
+.apt.photos .back3d{display:inline-flex}
 .fab{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;box-shadow:0 12px 30px -8px rgba(0,0,0,.6)}
 .fab svg{width:28px;height:28px}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
@@ -241,7 +262,7 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
     </div>
     <div class="hero-ctas">
       <a class="btn btn-gold" href="#contato">Quero saber mais</a>
-      <a class="btn btn-line" href="#apartamento">Ver o apartamento</a>
+      <button class="btn btn-line" type="button" data-open3d>Ver planta 3D</button>
     </div>
     <div class="hint" id="hint">Passe o mouse sobre um andar</div>
   </div>
@@ -263,7 +284,7 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
   <div class="wrap">
     <div class="head rv">
       <div><span class="eyebrow">O apartamento</span><h2>Cada metro pensado para <em>a sua rotina.</em></h2></div>
-      <p>Living integrado, suíte aconchegante, cozinha planejada e área de serviço. Escolha o ambiente para ver de perto.</p>
+      <div><p>Living integrado, suíte aconchegante, cozinha planejada e área de serviço. Escolha o ambiente para ver de perto.</p><button class="btn btn-gold" type="button" data-open3d style="margin-top:16px">Ver planta 3D do apartamento</button></div>
     </div>
     <div class="viewer rv" id="gal1"></div>
     <div class="specs rv">
@@ -350,7 +371,7 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
     <div><img src="/brand/logo-full.png" alt="Barack Prime" width="104" height="40"><div><b>Barack Prime Assessoria Imobiliária</b> · CRECI J10762</div><div>(45) 92000-8896 · contato@barackprime.com.br</div></div>
     <div><b>Lumina Residencial</b><br>Realização: LBX Construtora<br>Rua Otto Ernesto Gottlieb, 2091 · Foz do Iguaçu, PR</div>
     <div><a href="/" style="text-decoration:underline;text-underline-offset:4px">← Ver todos os imóveis da Barack Prime</a></div>
-    <p class="legal">*Valor de referência divulgado no lançamento, sujeito a alteração sem aviso prévio, conforme unidade, andar e condições de pagamento. Consulte disponibilidade. Imagens meramente ilustrativas; móveis e objetos de decoração não fazem parte do imóvel. Numeração dos andares na fachada ilustrativa.</p>
+    <p class="legal">*Valor de referência divulgado no lançamento, sujeito a alteração sem aviso prévio, conforme unidade, andar e condições de pagamento. Consulte disponibilidade. Imagens meramente ilustrativas; móveis e objetos de decoração não fazem parte do imóvel. Numeração dos andares na fachada e planta 3D ilustrativas; consulte a planta oficial da construtora.</p>
   </div>
 </footer>
 
@@ -358,15 +379,21 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
 
 <div class="apt" id="apt" role="dialog" aria-modal="true" aria-label="Apartamento" aria-hidden="true">
   <button class="close" id="aptX" type="button" aria-label="Voltar à fachada"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-  <div class="viewer" id="gal2"></div>
+  <div class="main">
+    <div class="stage3d" id="stage3d"><div class="loading3d" id="load3d">Montando a planta 3D…</div>
+      <div class="badge3d"><span>Planta ilustrativa · tipo 46 m²</span><small id="hint3d">Arraste para girar · toque nos pontos dourados para ver as fotos</small></div></div>
+    <div class="viewer" id="gal2"></div>
+    <button class="back3d" id="back3d" type="button">← Voltar à planta 3D</button>
+  </div>
   <aside class="side">
     <div class="row"><span id="aptFl">8º andar</span><em>Torre B</em></div>
     <h3>Apartamento<br>Lumina</h3>
     <div class="g"><div><b>46 · 57 m²</b><span>área privativa</span></div><div><b>1</b><span>suíte</span></div><div><b>+1</b><span>quarto</span></div></div>
     <div class="price">R$ 418 mil*</div>
-    <p>Living integrado à cozinha planejada, suíte com espaço para cama de casal, segundo quarto e área de serviço. Tudo a poucos minutos do Centro de Foz.</p>
+    <p>Living integrado à cozinha, suíte com banheiro, segundo quarto, banho social e área de serviço. Gire a planta e toque nos pontos dourados para ver cada ambiente.</p>
     <ol id="aptList"></ol>
-    <div class="acts"><a class="btn btn-gold" id="aptWa" href="#" target="_blank" rel="noopener noreferrer">Quero este andar</a><button class="btn btn-line" id="aptBack" type="button">Voltar à fachada</button></div>
+    <div class="acts"><button class="btn btn-gold" id="aptPhotos" type="button">Ver fotos</button><button class="btn btn-line" id="aptBack" type="button">Voltar à fachada</button></div>
+    <a class="btn btn-line" id="aptWa" href="#" target="_blank" rel="noopener noreferrer" style="margin-top:10px">Quero este andar no WhatsApp</a>
   </aside>
 </div>
 
@@ -430,17 +457,34 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
   /* intro sweep: highlight a floor so visitors notice it's interactive */
   setTimeout(function(){var r=svg.children[12];if(r&&!sel){r.dispatchEvent(new Event("focus"));r.blur&&r.blur();setTimeout(function(){if(sel===r&&!tower.matches(":hover")){tip.classList.remove("on");r.classList.remove("on");sel=null}},2600)}},1600);
 
-  /* apartment overlay */
-  var apt=document.getElementById("apt"),g2=null,ol=document.getElementById("aptList"),aBtns=[];
-  ROOMS.forEach(function(r,i){var li=document.createElement("li"),b=document.createElement("button");b.type="button";b.textContent=r[2];b.onclick=function(){g2.go(i,true)};li.appendChild(b);ol.appendChild(li);aBtns.push(b)});
+  /* apartment overlay: planta 3D + fotos */
+  var apt=document.getElementById("apt"),g2=null,ol=document.getElementById("aptList"),aBtns=[],plan=null,planLoading=null;
+  var PLAN_ROOMS=[["living","Living e jantar",0],["cozinha","Cozinha",2],["suite","Suíte",1],["banho","Banho da suíte"],["social","Banho social"],["quarto","Quarto"],["servico","Área de serviço",3]];
+  PLAN_ROOMS.forEach(function(r){var li=document.createElement("li"),b=document.createElement("button");b.type="button";b.textContent=r[1];
+    b.onmouseenter=function(){plan&&plan.highlight(r[0])};b.onmouseleave=function(){plan&&plan.highlight(null)};
+    b.onclick=function(){if(r[2]!=null)showPhotos(r[2]);else if(plan){plan.highlight(r[0]);apt.classList.remove("photos")}};
+    li.appendChild(b);ol.appendChild(li);aBtns.push(b)});
+  function ensureGal(){if(!g2)g2=gallery(document.getElementById("gal2"),ROOMS,function(i){var key=ROOMS[i][0];aBtns.forEach(function(b,j){b.classList.toggle("on",apt.classList.contains("photos")&&PLAN_ROOMS[j][0]===key)})})}
+  function showPhotos(i){ensureGal();apt.classList.add("photos");g2.go(i||0,true);if(plan)plan.stop()}
+  function show3d(){apt.classList.remove("photos");aBtns.forEach(function(b){b.classList.remove("on")});if(g2)g2.stop();if(plan)plan.start()}
+  function loadPlan(){if(planLoading)return planLoading;planLoading=import("/lumina-3d.js").then(function(mod){
+      plan=mod.createPlan(document.getElementById("stage3d"),{onRoom:function(r){var idx={living:0,suite:1,cozinha:2,servico:3}[r.photo];showPhotos(idx)}});
+      var l=document.getElementById("load3d");l&&l.remove();return plan}).catch(function(){document.getElementById("load3d").textContent="Não foi possível carregar o 3D neste aparelho";showPhotos(0)});return planLoading}
+  if(touch)document.getElementById("hint3d").textContent="Arraste com o dedo para girar · toque nos pontos dourados";
   var lastFocus=null;
-  function openApt(fl){lastFocus=document.activeElement;if(!g2)g2=gallery(document.getElementById("gal2"),ROOMS,function(i){aBtns.forEach(function(b,j){b.classList.toggle("on",j===i)})});else g2.go(0);
+  function openApt(fl){lastFocus=document.activeElement;fl=fl||8;
     document.getElementById("aptFl").textContent=fl+"º andar";
     document.getElementById("aptWa").href=wa("Olá, Barack Prime! Vi no site o Lumina Residencial e tenho interesse em uma unidade no "+fl+"º andar da Torre B. Pode me enviar valores e disponibilidade?");
-    apt.classList.add("on");apt.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";g1.stop();setTimeout(function(){document.getElementById("aptX").focus()},50)}
-  function closeApt(){apt.classList.remove("on");apt.setAttribute("aria-hidden","true");document.body.style.overflow="";if(g2)g2.stop();if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+    apt.classList.add("on");apt.classList.remove("photos");apt.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";g1.stop();
+    loadPlan().then(function(p){if(p&&apt.classList.contains("on")&&!apt.classList.contains("photos"))p.start()});
+    setTimeout(function(){document.getElementById("aptX").focus()},50)}
+  function closeApt(){apt.classList.remove("on","photos");apt.setAttribute("aria-hidden","true");document.body.style.overflow="";if(g2)g2.stop();if(plan)plan.stop();if(lastFocus&&lastFocus.focus)lastFocus.focus()}
   document.getElementById("aptX").onclick=closeApt;document.getElementById("aptBack").onclick=closeApt;
-  addEventListener("keydown",function(e){if(e.key==="Escape"&&apt.classList.contains("on"))closeApt()});
+  document.getElementById("aptPhotos").onclick=function(){showPhotos(0)};document.getElementById("back3d").onclick=show3d;
+  document.querySelectorAll("[data-open3d]").forEach(function(b){b.onclick=function(){openApt(8)}});
+  addEventListener("keydown",function(e){if(e.key==="Escape"&&apt.classList.contains("on")){if(apt.classList.contains("photos"))show3d();else closeApt()}});
+  /* pré-carrega o 3D quando o visitante passa o mouse na torre */
+  tower.addEventListener("pointerenter",function(){loadPlan()},{once:true});
 
   /* form */
   document.getElementById("form").addEventListener("submit",function(e){e.preventDefault();var n=document.getElementById("nm"),v=n.value.trim();
