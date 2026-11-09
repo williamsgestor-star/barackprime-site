@@ -67,10 +67,13 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:28px 0 8px}
 .spin{width:38px;height:38px;border-radius:50%;border:3px solid rgba(217,187,116,.25);border-top-color:var(--gold);animation:s 1s linear infinite}
 @keyframes s{to{transform:rotate(360deg)}}
 @media(max-width:420px){.specs{grid-template-columns:repeat(2,1fr)}}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.skip-link{position:absolute;left:12px;top:-80px;z-index:1000;padding:12px 18px;border-radius:999px;background:var(--gold);color:#17140f;font-weight:700;text-decoration:none}.skip-link:focus{top:12px}#app:focus{outline:none}
 </style>
 </head>
 <body>
-<div class="wrap" id="app"><div class="load"><div class="spin"></div><p style="color:var(--muted)">Carregando a ficha do imóvel…</p></div></div>
+<a class="skip-link" href="#app" onclick="event.preventDefault();var a=document.getElementById('app');a.focus();a.scrollIntoView()">Pular para o conteúdo</a>
+<div class="wrap" id="app" role="main" tabindex="-1"><div class="load"><div class="spin"></div><p style="color:var(--muted)">Carregando a ficha do imóvel…</p></div></div>
 <script>
 (function () {
   var API = "https://fspqwjrmjjykjpkjxwvb.supabase.co/functions/v1/atendimento";
@@ -94,7 +97,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:28px 0 8px}
     var h = '';
     h += '<header><img src="brand/logo-full.png" alt="Barack Prime Assessoria Imobiliária"><p class="for">' + (d.client ? 'Seleção exclusiva para <b>' + esc(d.client) + '</b>' : 'Seleção exclusiva') + (d.broker ? '<br>por ' + esc(d.broker) : '') + '</p></header>';
     if (ph.length) {
-      h += '<div class="gal"><div class="track" id="tr">' + ph.map(function (u, i) { return '<img src="' + esc(u) + '" alt="Foto ' + (i + 1) + '" loading="' + (i < 2 ? "eager" : "lazy") + '">'; }).join("") + '</div>';
+      h += '<div class="gal"><div class="track" id="tr">' + ph.map(function (u, i) { return '<img src="' + esc(u) + '" alt="' + esc("Foto " + (i + 1) + " de " + ph.length + " – " + p.title + (p.hood ? ", " + p.hood : "")) + '" loading="' + (i < 2 ? "eager" : "lazy") + '">'; }).join("") + '</div>';
       if (ph.length > 1) h += '<button class="nav l" aria-label="Foto anterior" data-d="-1">‹</button><button class="nav r" aria-label="Próxima foto" data-d="1">›</button>';
       h += '<span class="count" id="ct">1 / ' + ph.length + '</span></div>';
       if (ph.length > 1) h += '<div class="thumbs" id="th">' + ph.map(function (u, i) { return '<button data-i="' + i + '" class="' + (i ? "" : "on") + '" aria-label="Ver foto ' + (i + 1) + '"><img src="' + esc(u) + '" alt="" loading="lazy"></button>'; }).join("") + '</div>';
@@ -111,7 +114,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:28px 0 8px}
     if (p.features && p.features.length) h += '<section class="box"><h2>DIFERENCIAIS</h2><div class="chips">' + p.features.map(function (f) { return '<span>' + esc(f) + '</span>'; }).join("") + '</div></section>';
     if (p.mapQ) h += '<section class="box"><h2>LOCALIZAÇÃO</h2><div class="map"><iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=' + encodeURIComponent(p.mapQ) + '&z=' + (p.exact ? 16 : 14) + '&output=embed"></iframe></div>' + (p.exact ? '' : '<p class="note">Localização aproximada da região. O endereço exato é informado no agendamento da visita.</p>') + '</section>';
     h += '<p class="note" style="margin-top:14px">Valores e disponibilidade sujeitos a alteração sem aviso prévio. Confirme com seu corretor.</p>';
-    h += '<footer>Barack Prime Assessoria Imobiliária · CRECI J10762 · Foz do Iguaçu – PR<br><a href="./" style="color:var(--gold)">barackprime · ver outros imóveis</a></footer>';
+    h += '<footer>Barack Prime Assessoria Imobiliária · CNPJ 63.338.295/0001-20 · CRECI J10762 · Foz do Iguaçu – PR<br><a href="./" style="color:var(--gold)">barackprime · ver outros imóveis</a> · <a href="/privacidade" style="color:var(--gold)">Política de Privacidade</a> · <a href="/termos" style="color:var(--gold)">Termos de uso</a></footer>';
     h += '<div class="cta"><div class="in"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/' + WA + '?text=' + encodeURIComponent(msg) + '">Agendar visita pelo WhatsApp</a></div></div>';
     app.innerHTML = h;
     var tr = document.getElementById("tr"), ct = document.getElementById("ct"), th = document.getElementById("th");

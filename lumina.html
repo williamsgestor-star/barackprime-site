@@ -160,6 +160,9 @@ section{position:relative}
 .form label:first-child{margin-top:0}
 .form input{width:100%;min-height:50px;padding:0 16px;border-radius:12px;border:1px solid rgba(236,213,179,.3);background:rgba(247,241,231,.06);color:#fff;font:inherit;font-size:16px}
 .form input:focus{outline:none;border-color:var(--gold2);background:rgba(247,241,231,.1)}
+.form input:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.form .note a{color:var(--gold2);text-decoration:underline;text-underline-offset:3px}
+.skip-link{position:fixed;left:12px;top:-80px;z-index:10000;padding:12px 18px;border-radius:999px;background:var(--sand);color:var(--ink);font-weight:700;text-decoration:none}.skip-link:focus{top:12px}#conteudo:focus{outline:none}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips label{margin:0;text-transform:none;letter-spacing:0;font-size:14px;font-weight:500;color:var(--paper)}
 .chips input{position:absolute;opacity:0;width:1px;height:1px}
@@ -235,6 +238,7 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
 </style>
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="top" id="top">
   <div class="wrap">
@@ -249,7 +253,7 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
   </div>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
 <section class="hero" id="inicio">
   <div class="hero-copy">
     <span class="eyebrow">Lançamento · Torre B · Foz do Iguaçu</span>
@@ -361,6 +365,7 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
       </div>
       <button class="btn btn-gold" type="submit"><svg class="i" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>Falar no WhatsApp</button>
       <p class="note">Você será levado ao WhatsApp da Barack Prime com a mensagem pronta.</p>
+      <p class="note" style="margin-top:6px">Seu nome e a planta escolhida são usados só para este atendimento. Veja a <a href="/privacidade">Política de Privacidade</a>.</p>
     </form>
   </div>
 </section>
@@ -368,9 +373,9 @@ footer .legal{flex-basis:100%;font-size:11.5px;line-height:1.6;opacity:.8;border
 
 <footer>
   <div class="wrap">
-    <div><img src="/brand/logo-full.png" alt="Barack Prime" width="104" height="40"><div><b>Barack Prime Assessoria Imobiliária</b> · CRECI J10762</div><div>(45) 92000-8896 · contato@barackprime.com.br</div></div>
+    <div><img src="/brand/logo-full.png" alt="Barack Prime" width="104" height="40"><div><b>Barack Prime Assessoria Imobiliária</b> · CNPJ 63.338.295/0001-20 · CRECI J10762</div><div>(45) 92000-8896 · contato@barackprime.com.br</div></div>
     <div><b>Lumina Residencial</b><br>Realização: LBX Construtora<br>Rua Otto Ernesto Gottlieb, 2091 · Foz do Iguaçu, PR</div>
-    <div><a href="/" style="text-decoration:underline;text-underline-offset:4px">← Ver todos os imóveis da Barack Prime</a></div>
+    <div><a href="/" style="text-decoration:underline;text-underline-offset:4px">← Ver todos os imóveis da Barack Prime</a><div style="margin-top:10px"><a href="/privacidade" style="text-decoration:underline;text-underline-offset:4px">Política de Privacidade</a> · <a href="/termos" style="text-decoration:underline;text-underline-offset:4px">Termos de uso</a></div></div>
     <p class="legal">*Valor de referência divulgado no lançamento, sujeito a alteração sem aviso prévio, conforme unidade, andar e condições de pagamento. Consulte disponibilidade. Imagens meramente ilustrativas; móveis e objetos de decoração não fazem parte do imóvel. Numeração dos andares na fachada e planta 3D ilustrativas; consulte a planta oficial da construtora.</p>
   </div>
 </footer>
